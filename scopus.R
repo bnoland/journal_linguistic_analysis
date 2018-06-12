@@ -1,7 +1,7 @@
 library(rscopus)
 library(tidyverse)
 
-res <- scopus_search(query = "ISSN(0967-070X) AND PUBYEAR AFT 1999 AND PUBYEAR BEF 2010")
+res <- scopus_search(query = "ISSN(2214-367X) AND PUBYEAR BEF 2010")
 entries <- gen_entries_to_df(res$entries)$df
 
 as_tibble(entries)
