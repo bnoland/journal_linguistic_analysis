@@ -21,7 +21,8 @@ for (file in input_files) {
         if (is.null(abstract))
             next
         
-        output_file <- basename(entry$doi)
+        # CohMetrix seems to insist on input files having the right file extensions.
+        output_file <- paste0(basename(entry$doi), ".txt")
         output_path <- file.path(output_dir, entry$year, output_file)
         
         writeLines(abstract, output_path)
