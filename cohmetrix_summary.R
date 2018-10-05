@@ -25,11 +25,13 @@ for (file in data_file_list) {
 
 # Returns summary statistics for each variable in the form of a data frame.
 summary_stats <- function(data) {
-    lapply(data, function(col) {
+    data %>% map(function(col) {
         tibble(
             mean = mean(col),
             median = median(col),
-            sd = sd(col)
+            sd = sd(col),
+            min = min(col),
+            max = max(col)
         )
     }) %>% bind_rows(.id = "variable")
 }
